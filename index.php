@@ -4,6 +4,13 @@ $content = shell_exec('curl http://newspaper.annahar.com/pdf | grep http://stati
 $test = preg_match("#(http://.+\.pdf)#", $content, $result);
 
 $page = $result[0];
-header("location: $page");
+
+// To relocate to site: 
+// header("location: $page");
+
+// To email
+require('mailer.php');
+
+mailPaper($page);
 
 ?>
